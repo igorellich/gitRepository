@@ -6,7 +6,7 @@ define(["dojo/_base/declare",
     "dijit/_WidgetsInTemplateMixin",
     "dojo/Evented",
     "dijit/_FocusMixin",
-    "dojo/text!js/mainWidgetTemplate.html",
+    "dojo/text!src/template/mainWidgetTemplate.html",
     "dojo/on",
     "dojo/dom-attr",
     "dojo/dom-class",
@@ -85,8 +85,9 @@ define(["dojo/_base/declare",
                     }
                 });
             },
-            baseURL: "http://www.binance.com",
-            ExchangeInfoTestBlock: {
+            baseURL: "https://www.binance.com",
+            ExchangeInfoTestBlock: 
+            {
                 test: true,
                 "timezone": "UTC",
                 "serverTime": 1508631584636,
@@ -134,10 +135,10 @@ define(["dojo/_base/declare",
             },
             getExchangeInfo: async function () {
                 const me = this;
-                const url = me.baseURL + '/api/v1/exchangeIfo';
+                const url = me.baseURL + '/api/v1/exchangeInfo';
                 let tradeInfo = null;
                 try {
-                    let tradeInfo = await me.makeRequest({ method: 'GET', url: url });
+                    tradeInfo = await me.makeRequest({ method: 'GET', url: url });
                 } catch (e) {
                     tradeInfo = me.ExchangeInfoTestBlock;
                 }
