@@ -16,13 +16,13 @@
 
         };
     </script>
-    <script type="text/javascript" src="dojo-release-1.12.2/dojo/dojo.js"></script>
+    <script type="text/javascript" src="lib/dojo-release-1.12.2/dojo/dojo.js"></script>
 
 </head>
 
 <body>
     <script type="text/javascript">
-        require(["dojo/parser", "js/mainWidget", "dojo/domReady!"], function (parser, mainWidget) {
+        require(["dojo/parser", "src/js/mainWidget", "dojo/domReady!"], function (parser, mainWidget) {
             let widget = new mainWidget({ text: "Привет!" });
             let result = async function(){
             let info = await widget.getExchangeInfo();
